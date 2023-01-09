@@ -10,7 +10,7 @@
     <script>
 
         //Create 2 variables, 1 for computer selection and 1 for player selection
-        let playerSelection = "roCk"
+        let playerSelection
         let computerSelection = getComputerChoice();
 
         //Make the computer selection random
@@ -28,6 +28,8 @@
 
         //Play the round and compare the 2 selections
         function playRound() {
+            playerSelection = window.prompt("Rock, Paper, Scissors?", " ")
+
             playerSelection = capitalizeFirstLetter(playerSelection)
 
             //Determine who wins
@@ -50,7 +52,7 @@
         function game() {
             for (let i = 1; i <= 5; i++) {
                 playRound()
-                
+
                 //Reset computer selection every time
                 computerSelection = getComputerChoice()
             }
