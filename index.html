@@ -10,7 +10,14 @@
     <script>
 
         //Create 2 variables, 1 for computer selection and 1 for player selection
+        let playerSelection
+        let computerSelection = randSelect();
+
         //Make the computer selection random
+        function randSelect() {
+            return Math.floor(Math.random() * (3) + 1)
+        }
+        console.log(computerSelection)
         //Make sure selection is set to a correct case type
         //Play the round and compare the 2 selections
         //Determine who wins
