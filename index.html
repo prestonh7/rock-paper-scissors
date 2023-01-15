@@ -5,8 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class = container>
+        <div class = "selections">
+            <div class = "computerSelection"></div>
+            <div class = "playerSelection"></div>
+        </div>
+
+        <div class = "buttons">
+            <button type="button" id = "Rock">Rock</button>
+            <button type="button" id = "Paper">Paper</button>
+            <button type="button" id = "Scissors">Scissors</button>
+        </div>
+    </div>
+
     <script>
 
         //Create 2 variables, 1 for computer selection and 1 for player selection
@@ -21,16 +36,8 @@
             else return "Scissors"
         }
 
-        //Make sure selection is set to a correct case type
-        function capitalizeFirstLetter(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-        }
-
         //Play the round and compare the 2 selections
         function playRound() {
-            playerSelection = window.prompt("Rock, Paper, Scissors?", " ")
-
-            playerSelection = capitalizeFirstLetter(playerSelection)
 
             //Determine who wins
             if (playerSelection == "Rock") {
@@ -48,17 +55,14 @@
             } else return console.log("Selection invalid")
         }
 
-        //Create a continues game
-        function game() {
-            for (let i = 1; i <= 5; i++) {
-                playRound()
+        const buttons = document.querySelectorAll('button');
 
-                //Reset computer selection every time
-                computerSelection = getComputerChoice()
-            }
-        }
-
-        game()
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                playerSelection = (button.id);
+                playRound();
+            })
+        })
 
     </script>
 </body>
