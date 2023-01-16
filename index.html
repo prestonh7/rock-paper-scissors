@@ -11,7 +11,7 @@
 
     <div class = container>
         <div class = "selections">
-            <div class = "computerSelection"></div>
+            <div class = "computerSelection">Rock, paper, scissors</div>
             <div class = "playerSelection"></div>
         </div>
 
@@ -26,7 +26,9 @@
 
         //Create 2 variables, 1 for computer selection and 1 for player selection
         let playerSelection
-        let computerSelection = getComputerChoice();
+        let computerSelection
+        let win = 0
+        let lose = 0
 
         //Make the computer selection random
         function getComputerChoice() {
@@ -38,6 +40,9 @@
 
         //Play the round and compare the 2 selections
         function playRound() {
+
+            computerSelection = getComputerChoice();
+            computerSelectionBox.innerText = `${computerSelection}`;
 
             //Determine who wins
             if (playerSelection == "Rock") {
@@ -56,10 +61,13 @@
         }
 
         const buttons = document.querySelectorAll('button');
+        const yourSelectionBox = document.querySelector('.playerSelection');
+        const computerSelectionBox = document.querySelector('.computerSelection');
 
         buttons.forEach((button) => {
             button.addEventListener('click', () => {
                 playerSelection = (button.id);
+                yourSelectionBox.innerText = `${playerSelection}`;
                 playRound();
             })
         })
