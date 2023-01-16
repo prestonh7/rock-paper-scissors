@@ -4,9 +4,15 @@
     justify-content: space-around;
 }
 
+.score {
+    display: flex;
+    justify-content: center;
+}
+
 .selections {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 10px;
 }
 
