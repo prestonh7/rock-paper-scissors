@@ -1,12 +1,27 @@
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
 }
 
 .selections {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.computerSelection, .playerSelection {
+    width: 250px;    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 2px;
     border-style: solid;
     border-color: black;
-    width: 250px;
-    height: 250px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 200px;
 }
