@@ -12,8 +12,8 @@
 
     <div class = container>
         <div class = "selections">
-            <div class = "computerSelection">Rock, paper, scissors</div>
-            <div class = "vs">VS</div>
+            <div class = "computerSelection"></div>
+            <div class = "vs"><p>VS</p><p>Rock, Paper, Scissors!</p></div>
             <div class = "playerSelection"></div>
         </div>
 
@@ -41,19 +41,43 @@
         }
 
         const scoreboard = document.querySelector('.score');
+        const vs = document.querySelector('.vs');
 
         function win() {
             numWin++;
-            scoreboard.innerText = `${numWin} / ${numLose}`;
+            if(numWin == 5) {
+                alert("Victory! You win!");
+                resetGame();
+            } else {
+                scoreboard.innerText = `${numWin} / ${numLose}`;
+                vs.innerText = `VS
+                \n\nYou win!`
+            }
         }
 
         function lose() {
             numLose++;
-            scoreboard.innerText = `${numWin} / ${numLose}`;
+            if(numLose == 5) {
+                alert("Defeat! You lose...")
+            } else { 
+                scoreboard.innerText = `${numWin} / ${numLose}`;
+                vs.innerText = `VS
+                \n\nYou lose`
+            }
         }
 
         function tie() {
-            return console.log("You tied!");
+            vs.innerText = `VS
+            \n\nYou tied!`
+        }
+
+        function resetGame() {
+            numWin = 0;
+            numLose = 0;
+            scoreboard.innerText = `${numWin} / ${numLose}`;
+            computerSelection = '';
+            vs.innerText = `VS
+            \n\nRock, Paper, Scissors`
         }
 
         //Play the round and compare the 2 selections
