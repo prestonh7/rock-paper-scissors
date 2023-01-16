@@ -58,7 +58,8 @@
         function lose() {
             numLose++;
             if(numLose == 5) {
-                alert("Defeat! You lose...")
+                alert("Defeat! You lose...");
+                resetGame();
             } else { 
                 scoreboard.innerText = `${numWin} / ${numLose}`;
                 vs.innerText = `VS
